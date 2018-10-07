@@ -1,14 +1,16 @@
 import { Injectable } from '@nestjs/common';
+import { Book } from '../interfaces/interface';
 
 @Injectable()
 export class BooksService {
-	private readonly books: string[] = ['Drama', 'Thriller'];
+	private readonly books: Book[] = [];
 
-findAll(): string[] {
+
+findAll(): Book[] {
 	return this.books;
 }
 
-create(book: string) {
+create(book: Book) {
 	this.books.push(book);
  }
 

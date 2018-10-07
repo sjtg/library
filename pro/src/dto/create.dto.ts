@@ -1,3 +1,6 @@
+import {IsString } from 'class-validator';
+
+
 export class CreateCatDto {
 	readonly name: string ;
 	readonly age: number;
@@ -6,13 +9,13 @@ export class CreateCatDto {
 
 
 export class CreateBookDto {
-	readonly bookname: string;
-	readonly genre: string;
+@IsString()	readonly bookname: string;
+@IsString()	readonly genre: string;
 
 }
 
 
 export class CreatePublisherDto{
-	readonly publishername: string;
-	readonly genre: string; 
+@IsString()	readonly publishername: string;
+@IsString()	readonly genre: string; 
 }

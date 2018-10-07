@@ -1,8 +1,27 @@
 import { Controller, Get, Post, Body, Put, Param, Delete, Query } from '@nestjs/common';
 import { CreatePublisherDto } from '../../dto/create.dto';
 import { PublishersService } from '../publishers.service';
+import { Publisher } from '../../interfaces/interface';
 @Controller('publishers')
+
 export class PublishersController {
+
+	constructor(private readonly publisersService: PublishersService) {}
+
+	// Post Publishers 
+	@Post()
+	async create(@Body() createPublisher : CreatePublisherDto ){
+		this.publisersService.create(createPublisher);
+	}
+
+
+	// Get all publishers 
+	@Get()
+	async findAll(): Promise<Publisher[]>{
+		return this.publisersService.findAll();
+	}
+
+
   // @Post()
   // create(@Body() createPublisherDto) {
   //   return 'This action adds a new publishers';
