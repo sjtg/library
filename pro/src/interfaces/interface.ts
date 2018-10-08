@@ -27,12 +27,12 @@ export interface Book extends Document {
 }
 
 
-// export interface Publisher extends Document{
-// 	 readonly id : number;
-// 	 readonly author : string;
-// 	 readonly publishername : string;
-// 	 readonly genre: string; 
-// 	 readonly description : string;
-// 	 readonly views : number;
-// 	 readonly isPublished : boolean; 
-// }
+export interface Publisher extends Document{
+	 readonly id : number;
+	 readonly author : string;
+	 readonly publishername : string;
+	 readonly genre: string; 
+	 readonly description : string;
+	 readonly views : number;
+	 readonly isPublished : boolean; 
+}

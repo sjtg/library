@@ -29,15 +29,15 @@ export class CreateBookDto {
 }
 
 
-// export class CreatePublisherDto{
+export class CreatePublisherDto{
 
-// 	 readonly id : number;
-// 	 readonly author : string;
-// 		readonly publishername : string;
-// 		readonly genre: string; 
-// 	 readonly description : string;
-// 	 readonly views : string;
-// 	 readonly isPublished : boolean;
+	 readonly id : number;
+	 readonly author : string;
+		readonly publishername : string;
+		readonly genre: string; 
+	 readonly description : string;
+	 readonly views : string;
+	 readonly isPublished : boolean;
 
-// }
+}
 
