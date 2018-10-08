@@ -1,7 +1,7 @@
-import { Controller, Get, Post, Body, UsePipes, Put, Param, Delete, Query } from '@nestjs/common';
+import { Controller, Get, Post, Body } from '@nestjs/common';
 import { CreateBookDto } from '../../dto/create.dto';
 import { BooksService } from '../books.service';
-import { Book } from '../../interfaces/interface';
+import { Book as BookInterface } from '../../interfaces/interface';
 // import { ValidationPipe } from '../../commons/pipes';
 @Controller('books')
 export class BooksController {
@@ -16,7 +16,7 @@ constructor(private readonly booksService: BooksService) {}
   }
 
   @Get()
-  async findAll(): Promise<Book[]> {
+  async findAll(): Promise<BookInterface[]> {
   	return this.booksService.findAll();
   }
 

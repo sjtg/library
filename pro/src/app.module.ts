@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 // import { CatsModule } from './cats/cats.module';
 import { BooksModule } from 'src/books/books.module';
-import { PublishersModule } from 'src/publishers/publishers.module';
-import {TypeOrmModule } from '@nestjs/typeorm';
-import { Connection } from 'typeorm';
+// import { PublishersModule } from 'src/publishers/publishers.module';
+// import {TypeOrmModule } from '@nestjs/typeorm';
+// import { Connection } from 'typeorm';
 // import { MongooseModule } from '@nestjs/mongoose';
 // import { AuthService } from '../src/auth.service';
 
@@ -13,16 +13,14 @@ import { Connection } from 'typeorm';
 
   // import Cats , Books and Publisher Modules - CatsModule,
 
-  // imports: [ BooksModule, PublishersModule, MongooseModule.forRoot('mongodb://localhost/nest')],
-  imports :[
-  	TypeOrmModule.forRoot(),
-  	BooksModule, 
-  	PublishersModule,
-  ]
+  imports: [ BooksModule],
+  // imports :[
+  // 	TypeOrmModule.forRoot(),
+  // 	BooksModule, 
+  // 	PublishersModule,
+  // ]
 
-  // providers: [AuthService],
+  // providers: [AuthService] imports: [ BooksModule, PublishersModule, MongooseModule.forRoot('mongodb://127.0.0.1:27017')],,
   
 })
-export class AppModule {
-	constructor(private readonly connection: Connection) {}
-}
+export class ApplicationModule {}
