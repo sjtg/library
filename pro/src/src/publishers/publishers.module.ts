@@ -1,24 +1,17 @@
 import { Module } from '@nestjs/common';
-
-// import { MongooseModule } from '@nestjs/mongoose';
 import { PublishersController } from 'src/publishers/publishers.controller';
 import { PublishersService } from 'src/publishers.service'; 
+import { TypeOrmModule} from '@nestjs/typeorm';
+import { PublishersEntity } from 'src/publishers/publisher.entity';
 import { booksProviders } from 'src/providers';
-import { publishersProviders } from 'src/providers';
 import { DatabaseModule } from 'database/database.module';
-// import { PublisherSchema } from  '../../schema/all.schema';
-
-
-
-
 
 @Module({
 	
-	imports: [DatabaseModule],
-	controllers: [PublishersController],
-	providers: [PublishersService, ...publishersProviders],
-
+	
+	  imports: [TypeOrmModule.forFeature([PublishersEntity])],
+      controllers: [PublishersController],
+      providers: [PublishersService]
 
 })
 export class PublishersModule {}
-
