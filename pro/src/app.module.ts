@@ -10,7 +10,7 @@
       imports: [
           TypeOrmModule.forRoot({
               type: 'sqlite',
-              database: '${process.cwd()}/pro/library.sqlite',
+              database: '${process.cwd()}/library.sqlite',
               entities: [UserEntity, BooksModule, PublishersModule,],
               synchronize: true,
               // logging: 'all'
