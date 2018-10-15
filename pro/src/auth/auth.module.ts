@@ -9,11 +9,12 @@ import { AuthService } from "../auth.service";
 // import { AuthGuard } from '@nestjs/passport';
 import {HttpStrategy} from '../http.strategy';
 import {AppAuthGuard} from './AppAuthGuard';
+import {CookieSerializer} from './cookie-serializer';
 
 
 export class AuthModule {}
     @Module({
-      providers: [AuthService, HttpStrategy, AppAuthGuard]
+      providers: [AuthService, HttpStrategy, AppAuthGuard, CookieSerializer]
     })
 
 

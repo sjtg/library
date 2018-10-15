@@ -32,7 +32,7 @@
             this.password_hash = passHash;
         }
 
-        
+
         @OneToMany(type => BooksEntity, book => book.user)
         books: BooksEntity[];
 
@@ -61,4 +61,18 @@
                 return await UserEntity.save(u);
             }
         }
+
+
+        public static async authenticateUser(user: {username: string, password: string}): Promise<UserEntity> {
+        let u: UserEntity;
+        u = await UserEntity.findOne({
+            select: ['id', 'username', 'password_hash'],
+            where: { username: user.username}
+        });
+        const passHash = crypto.createHmac('sha256', user.password).digest('hex');
+        if (u.password_hash === passHash) {
+            delete u.password_hash;
+            return  u;
+        }
+    }
     }
