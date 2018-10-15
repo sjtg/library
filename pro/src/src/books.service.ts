@@ -6,6 +6,7 @@ import { CreateBookDto } from '../dto/create.dto';
 import { BOOK_MODEL_PROVIDER } from '../src/constants';
 import { UserEntity } from '../users/users.entity';
 import { BooksEntity } from 'src/books/books.entity';
+import { IBooksService } from 'src/books/IBooksService';
 // import { BOOK_MODEL_PROVIDER } from 'constants';
 
 
