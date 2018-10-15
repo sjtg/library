@@ -8,7 +8,7 @@
 export interface IUserService {
         findAll(): Promise<UserEntity[]>;
         createUser(user: CreateUserDto): Promise<UserEntity>;
-        getProjectsForUser(user: UserEntity): Promise<BooksEntity[]>;
-        getProjectsForUser(user: UserEntity): Promise<PublishersEntity[]>;
+        getBooksForUser(user: UserEntity): Promise<BooksEntity[]>;
+        getPublishersForUser(user: UserEntity): Promise<PublishersEntity[]>;
 }
 }

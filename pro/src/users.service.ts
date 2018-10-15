@@ -14,7 +14,10 @@
     public async createUser(user: CreateUserDto): Promise<UserEntity> {
        return await UserEntity.createUser(user);
     }
-    public async getProjectsForUser(user: UserEntity): Promise<ProjectEntity[]> {
+    public async getBooksForUser(user: UserEntity): Promise<BooksEntity[]> {
+        return undefined;
+    }
+     public async getPublishersForUser(user: UserEntity): Promise<PublishersEntity[]> {
         return undefined;
     }
 }
