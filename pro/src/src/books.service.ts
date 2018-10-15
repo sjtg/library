@@ -10,19 +10,8 @@ import { BooksEntity } from 'src/books/books.entity';
 
 
 @Injectable()
-export class BooksService {
-	constructor(@Inject( BOOK_MODEL_PROVIDER )private readonly bookModel: Model<Book>) {}
+export class BooksService implements IBooksService {
 	
-	async create(createBookDto: CreateBookDto): Promise<Book>{
-		const createdBook = new this.bookModel(createBookDto);
-		return await createdBook.save();
-	}
-
-
-	async findAll(): Promise<Book[]>{
-		return await this.bookModel.find().exec();
-	}
-
 
     public async createBooks(books: CreateBookDto[], user: UserEntity): Promise<BooksEntity[]> {
        return BooksEntity.createBooks(books, user);
@@ -40,11 +29,25 @@ export class BooksService {
 
 
 
+
+
 // import { Repository } from 'typeorm';
 // import { Injectable, Inject } from '@nestjs/common';
 // import { InjectRepository } from '@nestjs/typeorm';
 // import { Book } from 'src/books/books.entity';
 
+
+// constructor(@Inject( BOOK_MODEL_PROVIDER )private readonly bookModel: Model<Book>) {}
+	
+	// async create(createBookDto: CreateBookDto): Promise<Book>{
+	// 	const createdBook = new this.bookModel(createBookDto);
+	// 	return await createdBook.save();
+	// }
+
+
+	// async findAll(): Promise<Book[]>{
+	// 	return await this.bookModel.find().exec();
+	// }
 
 
 
