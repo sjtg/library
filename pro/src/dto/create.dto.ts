@@ -1,12 +1,3 @@
-// import {IsString } from 'class-validator';
-
-
-// export class CreateCatDto {
-// 	readonly name: string ;
-// 	readonly age: number;
-// 	readonly breed: string;
-// }
-
 
 export class CreateBookDto {
 	

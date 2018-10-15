@@ -7,6 +7,14 @@ import * as mongoose from 'mongoose';
 // });
 
 
+export const UserSchema = new mongoose.Schema({
+	id: Number,
+	firstName: String,
+	lastName: String,
+	password: String,
+});
+
+
 export const BookSchema = new mongoose.Schema({
 	id: Number,
 	bookname: String,

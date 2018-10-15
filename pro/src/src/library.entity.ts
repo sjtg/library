@@ -1,7 +1,7 @@
-import {BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
-import {UserEntity} from '../../users/users.entity';
-@Entity({name: 'publishers'})
-    export class PublishersEntity extends BaseEntity{
+    import {BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+    import {UserEntity} from '../users/users.entity';
+    @Entity({name: 'books'})
+    export class Books extends BaseEntity{
         @PrimaryGeneratedColumn()
         id: number;
         @Column({ length: 500})
@@ -13,7 +13,11 @@ import {UserEntity} from '../../users/users.entity';
         @Column('int')
         views : number;
         @Column()
-        isPublished: boolean;
+        isBorrowed: boolean;
         @ManyToOne(type => UserEntity)
         user: UserEntity;
     }
+
+
+
+  
