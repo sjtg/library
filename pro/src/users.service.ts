@@ -7,7 +7,7 @@
 
 
     @Injectable()
-	export class UserService implements IUserService{
+	export class UsersService implements IUserService{
     public async findAll(): Promise<UserEntity[]> {
         return await UserEntity.findAll();
     }
