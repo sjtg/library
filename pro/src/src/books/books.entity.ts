@@ -42,6 +42,13 @@ import { AppError } from 'commons/error/AppError';
        return Promise.all(result);
    			
    	}
+
+     public static async getBooks(user: UserEntity): Promise<BooksEntity[]> {
+            const u: UserEntity = await UserEntity.findOne(user.id, { relations: ['books']});
+            if (!u) throw new AppError(AppErrorTypeEnum.USER_NOT_FOUND);
+            return Promise.all(u.books);
+        }
 }
 
 
+    

@@ -30,5 +30,11 @@ export class PublishersService {
 	}
 
 
+	public async getPublishersForUser(user: UserEntity): Promise<PublishersEntity[]> {
+	    return PublishersEntity.getPublishers(user);
+	}
+
+
+
 
 }

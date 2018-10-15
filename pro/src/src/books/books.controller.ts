@@ -6,6 +6,8 @@ import { CreateBookDto } from '../../dto/create.dto';
 import { BooksService } from '../books.service';
 import { Book as BookInterface } from '../../interfaces/interface';
 import { BooksEntity } from '../books/books.entity';
+import { AppErrorTypeEnum } from 'commons/error/AppErrorTypeEnum';
+import { AppError } from 'commons/error/AppError';
 // import { ValidationPipe } from '../../commons/pipes';
 @Controller('books')
 export class BooksController {
@@ -16,6 +18,21 @@ constructor(private readonly booksService: BooksService) {}
     @UseGuards(SessionGuard)
     public async createBooks(@Body() createBooks: CreateBookDto[], @Res() res, @SessionUser() user: UserEntity) {
         const books: BooksEntity[] = await this.booksService.createBooks(createBooks, user);
+        return res.status(HttpStatus.OK).send(books);
+    }
+
+
+     public static async getBooks(user: UserEntity): Promise<BooksEntity[]> {
+        const u: UserEntity = await UserEntity.findOne(user.id, { relations: ['books']});
+        if (!u) throw new AppError(AppErrorTypeEnum.USER_NOT_FOUND);
+        return Promise.all(u.books);
+    }
+
+    @Get('')
+    @UseGuards(SessionGuard)
+
+    public async getBooks(@Res() res, @SessionUser() user: UserEntity) {
+        const books: BooksEntity[] = await this.booksService.getBooksForUser(user);
         return res.status(HttpStatus.OK).send(books);
     }
  

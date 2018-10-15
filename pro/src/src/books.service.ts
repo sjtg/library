@@ -29,6 +29,11 @@ export class BooksService {
 	}
 
 
+	public async getBooksForUser(user: UserEntity): Promise<BooksEntity[]> {
+	    return BooksEntity.getBooks(user);
+	}
+
+
 
 }
 
