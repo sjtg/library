@@ -4,6 +4,8 @@ import { Injectable, Inject } from '@nestjs/common';
 import { Publisher } from '../interfaces/interface';
 import { CreatePublisherDto } from '../dto/create.dto';
 import { PUBLISHER_MODEL_PROVIDER } from '../src/constants';
+import { UserEntity } from '../users/users.entity';
+import { PublishersEntity } from 'src/publishers/publisher.entity';
 // import { BOOK_MODEL_PROVIDER } from 'constants';
 
 
@@ -19,6 +21,12 @@ export class PublishersService {
 
 	async findAll(): Promise<Publisher[]>{
 		return await this.publisherModel.find().exec();
+	}
+
+
+
+    public async createPublishers(publishers: CreatePublisherDto[], user: UserEntity): Promise<PublishersEntity[]> {
+       return PublishersEntity.createPublishers(publishers, user);
 	}
 
 

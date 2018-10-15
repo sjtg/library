@@ -4,6 +4,8 @@ import { Injectable, Inject } from '@nestjs/common';
 import { Book } from '../interfaces/interface';
 import { CreateBookDto } from '../dto/create.dto';
 import { BOOK_MODEL_PROVIDER } from '../src/constants';
+import { UserEntity } from '../users/users.entity';
+import { BooksEntity } from 'src/books/books.entity';
 // import { BOOK_MODEL_PROVIDER } from 'constants';
 
 
@@ -19,6 +21,11 @@ export class BooksService {
 
 	async findAll(): Promise<Book[]>{
 		return await this.bookModel.find().exec();
+	}
+
+
+    public async createBooks(books: CreateBookDto[], user: UserEntity): Promise<BooksEntity[]> {
+       return BooksEntity.createBooks(books, user);
 	}
 
 

@@ -3,7 +3,7 @@ import { PublishersController } from 'src/publishers/publishers.controller';
 import { PublishersService } from 'src/publishers.service'; 
 import { TypeOrmModule} from '@nestjs/typeorm';
 import { PublishersEntity } from 'src/publishers/publisher.entity';
-import { booksProviders } from 'src/providers';
+import { publishersProviders } from 'src/providers';
 import { DatabaseModule } from 'database/database.module';
 
 @Module({

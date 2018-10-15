@@ -3,8 +3,8 @@
     import { BooksEntity } from 'src/books/books.entity';
     import { PublishersEntity } from 'src/publishers/publisher.entity';
     import { CreateUserDto } from 'dto/users.dto';
-    import {AppErrorTypeEnum} from '../common/error/AppErrorTypeEnum';
-    import {AppError} from '../common/error/AppError';
+    import {AppErrorTypeEnum} from '../commons/error/AppErrorTypeEnum';
+    import {AppError} from '../commons/error/AppError';
     @Entity({name: 'users'})
     export class UserEntity extends BaseEntity {
         @PrimaryGeneratedColumn()
