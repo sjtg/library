@@ -1,5 +1,9 @@
-import {BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
-import {UserEntity} from '../../users/users.entity';
+import { BaseEntity, Column, Entity, ManyToOne, PrimaryGeneratedColumn} from 'typeorm';
+import { UserEntity} from '../../users/users.entity';
+import { CreateBookDto } from 'dto/create.dto';
+import { AppErrorTypeEnum } from 'commons/error/AppErrorTypeEnum';
+import { AppError } from 'commons/error/AppError';
+
 @Entity({name: 'books'})
     export class BooksEntity extends BaseEntity{
         @PrimaryGeneratedColumn()
@@ -16,4 +20,28 @@ import {UserEntity} from '../../users/users.entity';
         isBorrowed: boolean;
         @ManyToOne(type => UserEntity)
         user: UserEntity;
-    }
+
+
+       public static async createBooks(books: CreateBookDto[], user: UserEntity): Promise<BooksEntity[]> {
+       const u: UserEntity = await UserEntity.findOne(user.id);
+       if (!u) throw new AppError(AppErrorTypeEnum.USER_NOT_FOUND);
+       const booksEntities: BooksEntity[] = [];
+       books.forEach((p: CreateBookDto) => {
+           const pr: BooksEntity = new BooksEntity();
+           pr.id = p.id;
+           pr.bookname = p.bookname;
+           pr.genre = p.genre;
+           pr.description = p.description;
+           pr.views = p.views;
+           pr.isBorrowed = p.isBorrowed;
+           booksEntities.push(pr);
+       });
+       u.books = booksEntities;
+       const result: BooksEntity[] = await BooksEntity.save(booksEntities);
+       await UserEntity.save([u]);
+       return Promise.all(result);
+   			
+   	}
+}
+
+
