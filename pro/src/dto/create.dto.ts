@@ -1,34 +1,36 @@
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+
 
 export class CreateBookDto {
-	
-	 	readonly id: number;
-		readonly bookname: string;
-		readonly genre: string;
-		readonly description : string;
-		readonly views : number;
-		readonly isBorrowed : boolean;
-		readonly book: [{
-						author: string,
-						publishername: string,
-						genre: string,
-						description: string,
-						views: number,
-						isPublished: boolean,
-						
-		}]
+		@PrimaryGeneratedColumn() 
+		id: number;
+		@Column('text')
+		bookname: string;
+		@Column('text')
+		genre: string;
+		@Column('text')
+		description : string;
+		@Column('text') 
+		views : number;
+		@Column('text')
+		isBorrowed : boolean;
 
 }
 
 
 export class CreatePublisherDto{
-
-	 readonly id : number;
-	 readonly author : string;
-		readonly publishername : string;
-		readonly genre: string; 
-	 readonly description : string;
-	 readonly views : string;
-	 readonly isPublished : boolean;
+		@PrimaryGeneratedColumn() 
+		id: number;
+		@Column('text')
+		bookname: string;
+		@Column('text')
+		genre: string;
+		@Column('text')
+		description : string;
+		@Column('text') 
+		views : number;
+		@Column('text')
+		isPublished : boolean;
 
 }
 

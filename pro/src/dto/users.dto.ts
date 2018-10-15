@@ -1,11 +1,15 @@
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+    
+
 export class CreateUserDto {
-	
-	 	readonly id: number;
-	 	readonly firstName: string;
-	 	readonly lastName: string;
-	 	readonly username: string;
-	 	readonly password: string; 
-	
-
-}
-
+		@PrimaryGeneratedColumn() 
+		id: number;
+        @Column('text')
+        firstName: string;
+        @Column('text')
+        lastName: string;
+       	@Column('text')
+        username: string;
+        @Column('text')
+        password: string;
+    }
