@@ -14,11 +14,11 @@
     @Module({
       imports: [
           TypeOrmModule.forRoot({
-              type: 'sqlite',
+              // type: 'sqlite',
               // database: "${process.cwd()}/library.sqlite",
-              database: `${process.cwd()}/library.sqlite`,
-              entities: [UserEntity, BooksModule, PublishersModule,],
-              synchronize: true,
+              // database: `${process.cwd()}/library.sqlite`,
+              // entities: [UserEntity, BooksModule, PublishersModule,],
+              // synchronize: true,
               // logging: 'all'
           }),
           UsersModule,
