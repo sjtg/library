@@ -36,15 +36,20 @@ export class PublishersController {
         return res.status(HttpStatus.OK).send(publishers);
     }
 
-	  // Post New books 
-  @Post()
-  // @UsePipes(new ValidationPipe())
-  async create(@Body() createPublisherDto: CreatePublisherDto) {
-    this.publisersService.create(createPublisherDto);
-  }
-
-  @Get()
-  async findAll(): Promise<PublisherInterface[]> {
-    return this.publisersService.findAll();
-  }
 }
+
+
+
+
+
+    // Post New books 
+  // @Post()
+  // @UsePipes(new ValidationPipe())
+  // async create(@Body() createPublisherDto: CreatePublisherDto) {
+  //   this.publisersService.create(createPublisherDto);
+  // }
+
+  // @Get()
+  // async findAll(): Promise<PublisherInterface[]> {
+  //   return this.publisersService.findAll();
+  // }
