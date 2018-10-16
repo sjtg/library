@@ -37,17 +37,17 @@ constructor(private readonly booksService: BooksService) {}
     }
  
 	// Post New books 
-  @Post('')
+  // @Post('')
   // @UsePipes(new ValidationPipe())
 
-  async create(@Body() createBookDto: CreateBookDto) {
-  	this.booksService.create(createBookDto);
-  }
+  // async create(@Body() createBookDto: CreateBookDto) {
+  // 	this.booksService.create(createBookDto);
+  // }
 
-  @Get()
-  async findAll(): Promise<BookInterface[]> {
-  	return this.booksService.findAll();
-  }
+  // @Get()
+  // async findAll(): Promise<BookInterface[]> {
+  // 	return this.booksService.findAll();
+  // }
 
    // @Post()
   // create(@Body() createBookDto) {
