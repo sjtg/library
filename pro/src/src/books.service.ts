@@ -1,13 +1,14 @@
-import { Model } from 'mongoose';
-import { Injectable, Inject } from '@nestjs/common';
+// import { Model } from 'mongoose';
+// import { BOOK_MODEL_PROVIDER } from '../src/constants';
 // import { InjectModel } from '@nestjs/mongoose';
-import { Book } from '../interfaces/interface';
+// import { Book } from '../interfaces/interface';
+// import { BOOK_MODEL_PROVIDER } from 'constants';
+import { Injectable } from '@nestjs/common';
 import { CreateBookDto } from '../dto/create.dto';
-import { BOOK_MODEL_PROVIDER } from '../src/constants';
 import { UserEntity } from '../users/users.entity';
 import { BooksEntity } from 'src/books/books.entity';
 import { IBooksService } from 'src/books/IBooksService';
-// import { BOOK_MODEL_PROVIDER } from 'constants';
+
 
 
 @Injectable()

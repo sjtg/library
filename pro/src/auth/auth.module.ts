@@ -1,23 +1,23 @@
 import { Module } from '@nestjs/common';
-import { JwtModule} from '@nestjs/jwt';
-import { PassportModule } from '@nestjs/passport';
-import { AuthController }from '../auth/auth.controller';
 import { AuthService } from "../auth.service";
+import {HttpStrategy} from '../http.strategy';
+import {AppAuthGuard} from './AppAuthGuard';
+// import {CookieSerializer} from './cookie-serializer';
+
+
+@Module({
+	providers: [AuthService, HttpStrategy, AppAuthGuard]
+})
+export class AuthModule {}
+
+
 // import { JwtStrategy } from './jwt.strategy';
 // import { HttpStrategy } from '../http.strategy';
 // import { UsersModule } from '../users/users.module';
 // import { AuthGuard } from '@nestjs/passport';
-import {HttpStrategy} from '../http.strategy';
-import {AppAuthGuard} from './AppAuthGuard';
-import {CookieSerializer} from './cookie-serializer';
-
-
-export class AuthModule {}
-    @Module({
-      providers: [AuthService, HttpStrategy, AppAuthGuard, CookieSerializer]
-    })
-
-
+// import { JwtModule} from '@nestjs/jwt';
+// import { PassportModule } from '@nestjs/passport';
+// import { AuthController }from '../auth/auth.controller'; providers: [AuthService, HttpStrategy, AppAuthGuard, CookieSerializer]
 
 // @Module({
 // 	imports: [UsersModule],

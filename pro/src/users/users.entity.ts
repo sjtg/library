@@ -1,10 +1,12 @@
-    import {BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
-    import * as crypto from 'crypto';
-    import { BooksEntity } from 'src/books/books.entity';
-    import { PublishersEntity } from 'src/publishers/publisher.entity';
-    import { CreateUserDto } from 'dto/users.dto';
-    import {AppErrorTypeEnum} from '../commons/error/AppErrorTypeEnum';
-    import {AppError} from '../commons/error/AppError';
+import {BaseEntity, Column, Entity, OneToMany, PrimaryGeneratedColumn} from 'typeorm';
+import * as crypto from 'crypto';
+import { BooksEntity } from 'src/books/books.entity';
+import { PublishersEntity } from 'src/publishers/publisher.entity';
+import { CreateUserDto } from 'dto/users.dto';
+import {AppErrorTypeEnum} from '../commons/error/AppErrorTypeEnum';
+import {AppError} from '../commons/error/AppError';
+    
+
     @Entity({name: 'users'})
     export class UserEntity extends BaseEntity {
         @PrimaryGeneratedColumn()

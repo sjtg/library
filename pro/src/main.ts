@@ -12,7 +12,7 @@ async function bootstrap() {
   //       .setVersion('1.0')
   //       .addTag('nestjs')
   //       .build();
-  await app.listen(3003);
+  await app.listen(3000);
 }
 bootstrap();
 
